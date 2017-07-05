@@ -1,5 +1,6 @@
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,11 @@ public class LogInterceptor implements HandlerInterceptor {
 		//一般在这里做权限控制
 		begin = System.currentTimeMillis();
 		System.out.println("preHandle ： true : " + begin);
+		/*HttpSession  session = request.getSession();
+		if(session.getAttribute("user") != null){
+			return true;
+		}
+		return false;*/
 		return true;
 	}
 

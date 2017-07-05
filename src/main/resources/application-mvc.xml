@@ -92,15 +92,17 @@
 	<!-- Session国际化 -->
 	<mvc:interceptors>
 		<!-- 国际化操作拦截器 如果采用基于（请求/Session/Cookie）则必需配置 -->
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		<!-- <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" /> -->
 		<!-- 全局的拦截器，请求进入springMVC就会启动拦截器 -->
 		<bean class="LogInterceptor"></bean> 
-		<!-- <mvc:interceptor>
-			 必须放在bean前面，不然会报错
-			这里只拦截 user空间下的所有的controller
+		<mvc:interceptor>
+			 <!-- 必须放在bean前面，不然会报错
+			这里只拦截 user空间下的所有的controller -->
 			<mvc:mapping path="/user/*"/>
 			<bean class="LogInterceptor"></bean>
-		</mvc:interceptor> -->
+			
+		</mvc:interceptor> 
+		
 	</mvc:interceptors>
 
 	<bean id="localeResolver"

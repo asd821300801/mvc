@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContext;
 
@@ -88,12 +89,13 @@ public class UserController {
 	 */
 	@RequestMapping("/viewRest")
 	public @ResponseBody User viewRest(Integer id){
+		
 		System.out.println(id);
 		User user = new User();
 		user.setId(id + "");
 		user.setName("View2 : LingDu");
 		user.setSex("男");
-		//int i = 1/0;//模拟一个不不能被0除的异常
+		int i = 1/0;//模拟一个不不能被0除的异常
 		return user;
 		
 	}
@@ -134,6 +136,7 @@ public class UserController {
 	
 	@RequestMapping("/rest")
 	public String rest(){
+		System.out.println("************************rest()");
 		return "rest/index";
 	}
 }
